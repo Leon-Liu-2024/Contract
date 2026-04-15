@@ -1,0 +1,18 @@
+{
+  "name": "mongodb-contract-mcp",
+  "version": "1.0.0",
+  "description": "MCP Server for MongoDB contracts collection",
+  "main": "server.js",
+  "bin": {
+    "mongodb-contract-mcp": "./server.js"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "mongodb": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

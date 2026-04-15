@@ -1,0 +1,74 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ===== Virtual environments =====
+venv/
+.venv/
+env/
+ENV/
+
+# ===== Node / Frontend =====
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vite/
+
+# ===== Environment / secrets =====
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ===== Databases (local data) =====
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+backend/data/
+backend/contract.db*
+backend/contract_v2.db*
+
+# ===== Uploads (user-generated content) =====
+backend/uploads/
+!backend/uploads/.gitkeep
+
+# ===== IDE / editor =====
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ===== Claude / local tooling =====
+.claude/
+.cursor/
+
+# ===== Logs =====
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===== Build / coverage =====
+build/
+coverage/
+.coverage
+htmlcov/
+.tox/
+
+# ===== OS junk =====
+$RECYCLE.BIN/
+desktop.ini
