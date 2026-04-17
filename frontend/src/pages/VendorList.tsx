@@ -75,11 +75,15 @@ const VendorList: React.FC = () => {
   };
 
   const columns = [
-    { title: '廠商名稱', dataIndex: 'name', key: 'name', ellipsis: true },
-    { title: '統一編號', dataIndex: 'tax_id', key: 'tax_id', width: 120 },
+    { title: '廠商名稱', dataIndex: 'name', key: 'name', ellipsis: true, width: 180 },
+    { title: '統一編號', dataIndex: 'tax_id', key: 'tax_id', width: 110 },
     { title: '聯絡人', dataIndex: 'contact_name', key: 'contact_name', width: 100 },
+    { title: '聯絡電話', dataIndex: 'contact_phone', key: 'contact_phone', width: 140,
+      render: (v: string | null) => v || <span style={{ color: '#bbb' }}>未填</span> },
+    { title: '地址', dataIndex: 'address', key: 'address', ellipsis: true,
+      render: (v: string | null) => v || <span style={{ color: '#bbb' }}>未填</span> },
     { title: '聯絡信箱', dataIndex: 'contact_email', key: 'contact_email', width: 180, ellipsis: true },
-    { title: '類別', dataIndex: 'category', key: 'category', width: 100 },
+    { title: '類別', dataIndex: 'category', key: 'category', width: 90 },
     {
       title: '稅籍登記',
       dataIndex: 'tax_registered',
@@ -171,14 +175,22 @@ const VendorList: React.FC = () => {
           <Form.Item name="contact_name" label="聯絡人">
             <Input />
           </Form.Item>
-          <Form.Item name="contact_phone" label="聯絡電話">
-            <Input />
+          <Form.Item
+            name="contact_phone"
+            label="聯絡電話"
+            extra="產生合約文件時自動帶入「甲方聯絡人及電話」欄位"
+          >
+            <Input placeholder="例：02-1234-5678" />
           </Form.Item>
           <Form.Item name="contact_email" label="聯絡信箱">
             <Input />
           </Form.Item>
-          <Form.Item name="address" label="地址">
-            <Input />
+          <Form.Item
+            name="address"
+            label="地址"
+            extra="產生合約文件時自動帶入「地址」欄位"
+          >
+            <Input placeholder="例：台北市信義區○○路○○號" />
           </Form.Item>
           <Form.Item name="category" label="類別">
             <Select
