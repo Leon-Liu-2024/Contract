@@ -1,4 +1,4 @@
-# 合約簽核管理系統 V2
+# 合約簽核管理系統
 
 企業合約完整生命週期管理系統，涵蓋合約建立、10 階段流程推進、多層簽核、ibon 範本自動填入、統計報表與歸檔查詢。
 
@@ -35,7 +35,6 @@
 │   │   ├── store/         # Zustand 狀態（authStore）
 │   │   └── types/         # TypeScript 型別定義
 │   └── package.json
-├── v1_backup/             # V1 舊版本備份（Node.js + Express，僅供參考）
 └── docs/screenshots/      # 系統截圖（用於簡報 / 文件）
 ```
 

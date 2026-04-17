@@ -55,7 +55,7 @@ export default function AppLayout() {
       <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed} theme="dark">
         <div style={{ height: 64, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
           <strong style={{ fontSize: collapsed ? 14 : 16 }}>
-            {collapsed ? 'CAS' : '合約簽核系統 V2'}
+            {collapsed ? 'CAS' : '合約簽核管理系統'}
           </strong>
         </div>
         <Menu

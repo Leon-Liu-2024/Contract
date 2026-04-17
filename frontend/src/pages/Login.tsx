@@ -46,7 +46,7 @@ const Login: React.FC = () => {
       <Card style={{ width: 420, borderRadius: 12, boxShadow: '0 8px 24px rgba(0,0,0,0.15)' }}>
         <Space direction="vertical" size="middle" style={{ width: '100%', textAlign: 'center' }}>
           <Title level={3} style={{ marginBottom: 0 }}>
-            合約簽核管理系統 V2
+            合約簽核管理系統
           </Title>
           <Text type="secondary">Contract Approval Management System</Text>
         </Space>

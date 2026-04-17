@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database import init_db
 
-app = FastAPI(title="合約簽核管理系統 V2", version="2.0.0")
+app = FastAPI(title="合約簽核管理系統", version="2.0.0")
 
 app.add_middleware(
     CORSMiddleware,

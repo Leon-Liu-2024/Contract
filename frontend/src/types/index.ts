@@ -1,4 +1,4 @@
-// V2 Types - 對應企業合約作業流程
+// Types - 對應企業合約作業流程
 
 export interface UserProfile {
   id: number;
