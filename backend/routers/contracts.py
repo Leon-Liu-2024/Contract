@@ -10,7 +10,7 @@ from models.approval import ApprovalRecord
 from models.user import User
 from schemas.contract import ContractCreate, ContractUpdate, StageAdvanceRequest, VoidRequest
 from middleware.auth import get_current_user
-from services.contract_engine import advance_stage, reject_to_previous, void_contract, submit_for_approval
+from services.contract_engine import advance_stage, reject_to_previous, void_contract, submit_for_approval, STAGE_ORDER
 from services.file_service import save_upload
 from utils.datetime_utils import to_iso_utc
 
@@ -139,9 +139,12 @@ def get_contract(
             ApprovalRecord.contract_id == contract_id,
             ApprovalRecord.status != "cancelled",
         )
-        .order_by(ApprovalRecord.stage, ApprovalRecord.step_order)
         .all()
     )
+
+    # 依流程順序排序（STAGE_ORDER 定義 10 個階段的先後），同階段內再依 step_order 排
+    _stage_index = {s: i for i, s in enumerate(STAGE_ORDER)}
+    approval_records.sort(key=lambda x: (_stage_index.get(x[0].stage, 999), x[0].step_order))
 
     approvals = []
     for ar, approver in approval_records:

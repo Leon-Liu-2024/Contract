@@ -224,22 +224,33 @@ const ContractDetail: React.FC = () => {
 
   // Approval records
   const approvals: ApprovalRecord[] = c.approvals ?? [];
+  const approvalStatusMap: Record<string, { label: string; color: string }> = {
+    pending:  { label: '待審核', color: 'default' },
+    waiting:  { label: '等待中', color: 'default' },
+    approved: { label: '已核准', color: 'green' },
+    rejected: { label: '已駁回', color: 'red' },
+  };
   const approvalColumns = [
+    {
+      title: '階段',
+      dataIndex: 'stage',
+      key: 'stage',
+      width: 140,
+      render: (v: string) => {
+        const stage = CONTRACT_STAGES[v];
+        return <Tag color={stage?.color}>{stage?.label ?? v}</Tag>;
+      },
+    },
     { title: '順序', dataIndex: 'step_order', key: 'step_order', width: 60 },
     { title: '步驟名稱', dataIndex: 'step_name', key: 'step_name' },
-    { title: '類型', dataIndex: 'step_type', key: 'step_type' },
     { title: '簽核者', dataIndex: 'approver_name', key: 'approver_name' },
     {
       title: '狀態',
       dataIndex: 'status',
       key: 'status',
       render: (v: string) => {
-        const colorMap: Record<string, string> = {
-          pending: 'default',
-          approved: 'green',
-          rejected: 'red',
-        };
-        return <Tag color={colorMap[v] ?? 'default'}>{v}</Tag>;
+        const s = approvalStatusMap[v];
+        return <Tag color={s?.color ?? 'default'}>{s?.label ?? v}</Tag>;
       },
     },
     { title: '備註', dataIndex: 'comment', key: 'comment' },
